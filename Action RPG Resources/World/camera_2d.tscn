@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr7r8v6xymgwf"]
+
+[ext_resource type="Script" path="res://Action RPG Resources/World/camera_2d.gd" id="1_48nsn"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(184, 96)
+position_smoothing_enabled = true
+script = ExtResource("1_48nsn")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TopLeft" type="Marker2D" parent="Node"]
+position = Vector2(24, 6)
+
+[node name="BottomRight" type="Marker2D" parent="Node"]
+position = Vector2(344, 186)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmf8fputf75h1"]
+
+[ext_resource type="PackedScene" uid="uid://1e8w3skaa7o6" path="res://hitbox.tscn" id="1_pxq2w"]
+[ext_resource type="Texture2D" uid="uid://fcvwi3k8ws8e" path="res://Action RPG Resources/UI/HeartUIFull.png" id="2_02wnn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bn2xm"]
+radius = 7.0
+
+[node name="HitboxProjectile" instance=ExtResource("1_pxq2w")]
+collision_layer = 128
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+rotation = -1.57017
+texture = ExtResource("2_02wnn")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_bn2xm")

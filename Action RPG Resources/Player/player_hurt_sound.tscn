@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlmjko80sadt"]
+
+[ext_resource type="AudioStream" uid="uid://cvrd6jbxxk8ln" path="res://Action RPG Resources/Music and Sounds/Hit.wav" id="1_1883f"]
+[ext_resource type="Script" path="res://Action RPG Resources/Player/player_hurt_sound.gd" id="2_i8vmg"]
+
+[node name="PlayerHurtSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_1883f")
+autoplay = true
+script = ExtResource("2_i8vmg")

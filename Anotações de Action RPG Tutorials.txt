@@ -1,0 +1,181 @@
+Ao importar uma imagem png na engine é necessario checar se na aba "importar" existe algum filtro ativado que pode deixar a imagem borrada
+
+-Ir em configurações de projeto e verificar se a opcção "Nearest" está ativada para impedir que qualquer filtro seja aplicado na imagem
+
+-Scenes:Na godot podem ser usadas como objetos(player,mundo...) ou instâncias de lelves.
+
+"Na Godot Engine, uma cena é a unidade fundamental de organização e interação em um jogo ou aplicativo. Ela pode conter uma variedade de elementos, como sprites, personagens, efeitos sonoros, scripts e outros objetos que compõem uma parte específica do seu jogo ou aplicativo."-GPT.
+
+Na aba de configurações de projeto é possivel ajustar o tamanho da "camêra" e da tela em que o jogo é apresentado
+
+É necessário ativar o modo "canvas_item" para fazer com que a vista do jogo seja apenas na area marcada(camêra) na tela
+
+Existe uma hierarquia de "Nós" na godot.Cada cena possui um nó parent que está acima dos demais nós
+
+"character body 2D" normalmente se refere a um corpo de personagem 2D que pode ser usado para simular física, colisões e movimento em jogos 2D por script.
+
+Sprite2d node: É utilizado para sprites 2d
+
+Em Godot, um Sprite2D é um nó que representa uma imagem ou textura em um jogo 2D. Ele desenha imagens bidimensionais na tela e é usado principalmente para representar personagens, objetos, cenários e outros elementos visuais em jogos 2D. 
+
+É possivel ajustar a quantida de frames em animation
+
+Existe uma opção na aba que fica em cima da camera que perimte selecionar um nó sem clicar em um nó filho desse nó por engano
+
+
+Em Godot, a função _ready() é uma função de callback especial que é chamada automaticamente quando um nó de cena está pronto para ser usado. Esta função é muito útil para executar inicializações e configurações de um nó assim que ele estiver completamente carregado e pronto para interagir com outros nós e iniciar seu comportamento dentro da cena.
+
+# Esta função é chamada quando o nó e todos os seus filhos foram inicializados
+    # e prontos para interagir.
+    
+    # Exemplo de uso: definir a posição inicial do Sprite
+    position = Vector2(100, 100)
+    
+    # Exemplo de uso: imprimir uma mensagem no console quando o nó estiver pronto
+    print("Sprite está pronto para interagir!")
+
+process():
+A função _process() é chamada a cada quadro renderizado pelo motor de jogo.
+Ela é usada para atualizar a lógica do jogo que não depende diretamente da física, como movimentação de personagens, animações, transições de cena, efeitos visuais, etc.
+Como é chamada a cada quadro, a lógica implementada dentro dela pode variar dependendo da taxa de quadros por segundo (FPS) do jogo e pode ser afetada por desempenho em cenários mais intensivos.
+
+physics_process():
+A função _physics_process() é chamada a cada quadro de simulação física, independentemente da taxa de quadros por segundo do jogo.
+É usada para atualizar a lógica do jogo que depende da física, como detecção e resposta a colisões, movimentação de objetos afetados pela física, simulação de comportamentos físicos, entre outros.
+Como é chamada em intervalos de tempo fixos, é mais previsível e adequada para lógica que precisa de um comportamento físico constante.
+
+O termo "delta" se refere ao tempo decorrido desde o último quadro renderizado.
+
+Em Godot, a função normalize() é usada para normalizar vetores. Normalizar um vetor significa ajustar seu comprimento para 1, enquanto mantém sua direção. Isso é útil em muitos contextos, especialmente quando você precisa apenas da direção de um vetor, e não se importa com o seu comprimento.
+
+Em um contexto de desenvolvimento de jogos, por exemplo, você pode usar a função normalize() para calcular a direção em que um personagem deve se mover sem se preocupar com a velocidade específica em que ele se move.
+
+
+Em Godot, a função move_toward() é utilizada para mover um objeto gradualmente em direção a um destino específico a uma taxa fixa, mantendo a direção correta. Essa função é frequentemente utilizada para movimentar personagens, objetos ou outros elementos do jogo em direção a um ponto específico ou para seguir outro objeto.
+Usando para causar efeito de fricção por exemplo.
+
+// 
+\\
+Resumo da aula: "Make an Action RPG in Godot 3.2 (P4 | scenes + ysort node)"
+
+**Cenas na Godot Engine:**
+
+1. **Definição de Cena**: Uma cena na Godot Engine é uma coleção de nodes que define um conjunto específico de objetos e lógica de jogo.
+  
+2. **Composição Hierárquica**: As cenas podem ser compostas hierarquicamente, o que significa que um node pode conter outros nodes, formando uma árvore de cena.
+
+3. **Reutilização e Modularidade**: As cenas podem ser reutilizadas em diferentes partes do jogo, promovendo a modularidade e facilitando a organização do projeto.
+
+4. **Instanciação**: As cenas podem ser instanciadas (criadas) em tempo de execução para criar múltiplas cópias de um mesmo conjunto de nodes, facilitando a criação de várias instâncias de um mesmo objeto.
+
+**YSort Node:**
+
+1. **Ordenação Vertical (Y)**: O YSort node é um tipo especial de node na Godot Engine que organiza automaticamente os nodes filhos com base em suas posições verticais (eixo Y) durante a renderização.
+
+2. **Renderização Ordenada**: Os nodes filhos do YSort node são renderizados na ordem em que aparecem na cena, com os nodes mais baixos (com maior coordenada Y) sendo renderizados por último, aparecendo assim "por cima" dos nodes com coordenadas Y menores.
+
+3. **Útil para Jogos 2D**: O YSort node é particularmente útil em jogos 2D, onde a renderização correta dos objetos em camadas é essencial para garantir que os elementos do jogo sejam exibidos corretamente, especialmente quando há sobreposição de objetos.
+
+4. **Simplicidade de Uso**: O YSort node é fácil de usar e requer pouco ou nenhum código adicional. Basta adicionar os nodes que você deseja que sejam ordenados ao YSort node e posicioná-los corretamente na cena em relação aos eixos X e Y.
+
+Em resumo, cenas na Godot Engine são a base da organização de um jogo, enquanto o YSort node é uma ferramenta poderosa para controlar a renderização de objetos em uma cena 2D, garantindo que eles se sobreponham corretamente com base em suas posições verticais.
+
+
+For Godot 4.0 beta, YSort is no longer a Node2D type. Instead, it is a property in the Inspector panel. All you have to do is enable Y Sort. You do this by clicking on your "World" node > Inspector tab on right side > Node2D > Ordering > Y Sort Enabled > Click box to enable. You'll have to do this for any layered nodes that contain other objects, I think. Hope that helps!
+
+Forma de declarar um caminho/instância de um nó na godot
+animationPlayer = $AnimationPlayer
+
+// 
+\\
+Resumo da aula: "Make an Action RPG in Godot 3.2 (P5 | AnimationPlayer)"
+
+
+O AnimationPlayer é um nó essencial na Godot Engine, uma poderosa ferramenta para criar animações em jogos e outras aplicações interativas. Aqui está um resumo das principais características e funcionalidades do AnimationPlayer:
+
+Gerenciamento de animações: O AnimationPlayer permite criar e gerenciar animações diretamente no editor da Godot. Ele suporta uma variedade de propriedades animáveis, como posição, escala, rotação, cores e muito mais.
+
+Curvas de animação: Além das propriedades básicas, o AnimationPlayer também suporta curvas de animação personalizadas. Isso permite criar animações suaves e realistas com controle detalhado sobre a velocidade e a interpolação entre os quadros-chave.
+
+Interpolação: O AnimationPlayer suporta vários tipos de interpolação entre os quadros-chave, incluindo linear, cúbica, e interpolações personalizadas. Isso proporciona flexibilidade na criação de animações com diferentes estilos e efeitos.
+
+Controle de tempo: Além de reproduzir animações em tempo real, o AnimationPlayer permite controlar a velocidade de reprodução, pausar, parar e retroceder animações. Isso é útil para criar efeitos específicos e interações de animação em resposta a eventos do jogo.
+
+Eventos de animação: O AnimationPlayer suporta eventos de animação, que podem ser usados para acionar funções ou eventos específicos em scripts em momentos específicos durante a reprodução da animação. Isso é útil para sincronizar animações com lógica de jogo e interações do jogador.
+
+Blend Trees: O AnimationPlayer também suporta a criação de árvores de blend (Blend Trees), permitindo misturar várias animações com base em condições específicas. Isso é útil para criar transições suaves entre animações e comportamentos complexos de personagens.
+
+Em resumo, o AnimationPlayer é uma ferramenta poderosa e flexível para criar e gerenciar animações em jogos e outras aplicações interativas na Godot Engine. Com uma variedade de recursos e opções de controle, ele oferece aos desenvolvedores a capacidade de criar animações ricas e envolventes para seus projetos.
+
+
+//\\
+
+Na animation Tree é posivel priorizar a direção em que as animações estão adicionadas ajustando o 1.1 e -1.1 do eixo y(Priorizando esquerda e direita) e no eixo x (priorzando baixo e cima)
+
+A AnimationTree é uma ferramenta poderosa dentro do mecanismo de jogo Godot Engine, usada para controlar animações de personagens e objetos de forma dinâmica. Ela permite criar e controlar animações de forma procedural, misturar várias animações, transições suaves entre elas e muito mais. Aqui está uma explicação sobre como ela funciona e como utilizá-la:
+
+Para que serve:
+Controle de animação dinâmica: A AnimationTree permite controlar as animações do seu personagem ou objeto de forma dinâmica em tempo real, o que é útil para criar transições suaves entre diferentes estados de animação.
+
+Blending de animações: Você pode mesclar várias animações para criar movimentos mais complexos. Por exemplo, mesclar animações de caminhar e empunhar uma arma para criar um movimento de caminhar enquanto segura uma arma.
+
+Transições suaves: Ela permite transições suaves entre diferentes estados de animação, evitando transições bruscas e pouco naturais.
+
+Controle de parâmetros de animação: Você pode definir parâmetros que influenciam a reprodução da animação, como velocidade, direção, intensidade de uma ação, etc.
+
+Como se utiliza:
+Adicione um AnimationTree: No Godot, você começa adicionando um nó AnimationTree ao seu nó de cena principal.
+
+Configure os nós de animação: Dentro do AnimationTree, você adiciona os nós de animação que representam as animações que você quer controlar. Estes podem incluir nós como "BlendTree" para mesclar várias animações, "AnimationNode" para controlar uma única animação, etc.
+
+Conecte os nós: Você conecta os nós de animação de acordo com a lógica que deseja implementar. Por exemplo, você pode conectar um nó de entrada de "BlendTree" a diferentes estados de movimento do seu personagem, como andar, correr, pular, etc.
+
+Defina parâmetros: Se desejar ter controle dinâmico sobre a animação, defina parâmetros em seus nós de animação. Por exemplo, você pode definir um parâmetro de velocidade para controlar a velocidade de reprodução da animação de caminhar.
+
+Atualize os parâmetros: Em tempo de execução, você pode atualizar esses parâmetros para influenciar a reprodução da animação. Por exemplo, ao pressionar as teclas de movimento, você pode atualizar o parâmetro de velocidade para controlar a animação de movimento do personagem.
+
+Execute a animação: A animação será executada de acordo com as configurações que você definiu nos nós do AnimationTree e os parâmetros que você atualizou.
+
+No geral, a AnimationTree é uma ferramenta flexível e poderosa para controlar animações em tempo real em seu jogo Godot. Ela permite uma grande variedade de comportamentos de animação, desde simples até altamente complexos.
+
+(Nota:Rever essa aula e anotar o que ele falou)
+
+Ver questão sobre profundidade*(O player conseguir destruir plantas que estão na camada "acima")
+Talvez o sitema de layers da godot ajude a evitar isso
+Possivel solução:Criar uma outra instancia de plantas que não tenham hitbox.Porvavelmente a mais facil e pratica mas voce não vai aprender mais XD
+
+tilemap generator
+
+OBS:Voltar no video de attack e ver comentários sobre como outras pessoas progamaram a movimentação de ataque
+
+Voltar no video de wander_state e ver comentários
+
+Criar obejtos como um arbusto mágico que recupera a vida perdida do personagem ou fada que curar player ao passar por ela
+
+Aplicar sistema de stun e knocback para o player e inimigos
+
+Criar um boss que invoca inimigos. 
+
+Emitir uma mensagem ao player morrer.Exemplo: (YOU DIED)
+
+Fazer a tela tremer ao player sofrer dano
+
+Fazer com os inimigos sigam o player ao entrar na player_detection_zone pelo o caminho mais util ,EX:Desviando de obstáculos por exemplo
+Ver nos comentarios dos videos de criação do inimigo se alguem comentou sobre isso ^^
+
+Rever video do Background
+
+Rever o penultimo video na parte sobre apagar sinais de aviso na godot
+
+Acrescentar coisas antes de fazer o MOD:
+-Tela inicial do jogo ---Feito
+-Sistema de salvar o jogo
+-Colocar um som diferente do hit normal quando o player morrer
+-Criar menu de pause do jogo
+-Colocar a opção de se mover pelo o teclado tanto no padrão(direita,esqeuerda...) como no W/S/D/A
+
+
+
+
+
+

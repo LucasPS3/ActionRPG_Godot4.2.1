@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://db1v3wjtklcjj"]
+
+[ext_resource type="Script" path="res://MenuInicial.gd" id="1_83gx8"]
+
+[node name="MenuInicial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_83gx8")
+
+[node name="ButtonStart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 86.0
+offset_bottom = 79.0
+text = "Start"
+
+[node name="ButtonExit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 48.0
+offset_right = 165.0
+offset_bottom = 79.0
+text = "Exit"
+
+[connection signal="pressed" from="ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]

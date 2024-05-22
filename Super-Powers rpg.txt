@@ -1,0 +1,15 @@
+Espontâneo(Habilidades Ativas)
+Poderes com gatilho espontâneo são poderes executados com a plena consciência do usuário e de acordo com sua vontade, apenas no momento e do modo determinado pelo mesmo. Gatilho muito comum, por exemplo, em poderes cinéticos, elementais e mentais/psíquicos.
+
+Exemplo: O player atira uma bola de fogo quando pressionada o botão da skill.
+
+Constante(Habilidades Passivas,constantes)
+Poderes com gatilho constante são poderes que estão sempre em funcionamento, e normalmente estão relacionadas a uso pessoal. Gatilho muito comum, por exemplo, em poderes físicos, mas também pode ser apresentado por alguns poderes miméticos.
+
+Exemplo: O player se regenera mais rapido permanentemente ao adquirir a skill de healing factor.
+
+Condicional(Habilidades Passivas,não constantes)
+Poderes com gatilho condicional são poderes que necessitam do cumprimento de uma condição imposta para serem ativados, como um ritual ou a presença de um ser ou objeto específico, por exemplo. Em alguns casos, os efeitos adquiridos pela realização dessas condições tendem a ser temporários, durando apenas por um intervalo de tempo ou enquanto o efeito puder ser abastecido por algum tipo de energia. É um gatilho muito comum, por exemplo, em poderes mágicos.
+
+Exemplo: Um player ganha um buff durante a noite ao adquirir a skill de werewolf.
+
